@@ -37,6 +37,7 @@ Initial results indicate a weak negative correlation between the wealth share of
 
 2. **Install the required R packages:**
 
+   ```bash
 install.packages("tidyverse")
 install.packages("readxl")
 Run the R script(s):
@@ -45,6 +46,8 @@ Run the R script(s):
 
 
 ## Repository Structure
+
+   ```bash
 README.md - This file.
 happiness_data.csv - The dataset containing happiness scores.
 inequality_data.xlsx - The dataset with inequality data for the top 10%.
