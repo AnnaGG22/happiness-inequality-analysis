@@ -38,12 +38,12 @@ Initial results indicate a weak negative correlation between the wealth share of
 2. **Install the required R packages:**
 
    ```bash
-install.packages("tidyverse")
-install.packages("readxl")
-Run the R script(s):
+   install.packages("tidyverse")
+   install.packages("readxl")
+  
+3. **Run the R script(s):**
 
-3. **Open the provided R script in RStudio or your preferred R environment and execute it. The script includes data import, cleaning, visualization, and analysis steps.**
-
+Open the provided R script in RStudio or your preferred R environment and execute it. The script includes data import, cleaning, visualization, and analysis steps.
 
 ## Repository Structure
 
