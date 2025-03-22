@@ -47,10 +47,9 @@ Open the provided R script in RStudio or your preferred R environment and execut
 
 ## Repository Structure
 
-   ```bash
-README.md - This file.
-happiness_data.csv - The dataset containing happiness scores.
-inequality_data.xlsx - The dataset with inequality data for the top 10%.
-inequality1_data.xlsx - The dataset with inequality data for the top 1%.
-analysis.R - The main R script performing the analysis.
+- README.md - This file.
+- happiness_data.csv - The dataset containing happiness scores.
+- inequality_data.xlsx - The dataset with inequality data for the top 10%.
+- inequality1_data.xlsx - The dataset with inequality data for the top 1%.
+- analysis.R - The main R script performing the analysis.
 
