@@ -40,6 +40,7 @@ Initial results indicate a weak negative correlation between the wealth share of
    ```bash
    install.packages("tidyverse")
    install.packages("readxl")
+   install.packages("ggrepel")
   
 3. **Run the R script(s):**
 
