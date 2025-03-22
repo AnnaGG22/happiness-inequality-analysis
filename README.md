@@ -33,3 +33,20 @@ Initial results indicate a weak negative correlation between the wealth share of
    ```bash
    git clone https://github.com/yourusername/happiness-inequality-analysis.git
    cd happiness-inequality-analysis
+
+
+2. **Install the required R packages:**
+
+install.packages("tidyverse")
+install.packages("readxl")
+Run the R script(s):
+
+3. **Open the provided R script in RStudio or your preferred R environment and execute it. The script includes data import, cleaning, visualization, and analysis steps.**
+
+
+## Repository Structure
+README.md - This file.
+happiness_data.csv - The dataset containing happiness scores.
+inequality_data.xlsx - The dataset with inequality data for the top 10%.
+inequality1_data.xlsx - The dataset with inequality data for the top 1%.
+analysis.R - The main R script performing the analysis.
