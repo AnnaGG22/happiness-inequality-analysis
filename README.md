@@ -1,5 +1,3 @@
-# happiness-inequality-analysis
-
 # Relationship between Wealth Inequality and Happiness
 
 This project explores the relationship between wealth inequality and national happiness. By merging datasets on happiness scores and wealth distribution across countries, the analysis investigates whether greater concentration of wealth, particularly among the top 1%, is associated with lower overall happiness.
