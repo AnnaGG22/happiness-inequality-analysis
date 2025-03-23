@@ -1,6 +1,6 @@
 # Relationship between Wealth Inequality and Happiness
 
-This project explores the relationship between wealth inequality and national happiness. By merging datasets on happiness scores and wealth distribution across countries, the analysis investigates whether greater concentration of wealth, particularly among the top 1%, is associated with lower overall happiness.
+This project explores the relationship between wealth inequality and national happiness. By merging datasets on happiness scores and wealth distribution across countries, the analysis investigates whether greater concentration of wealth, particularly among the top 10%, is associated with lower overall happiness.
 
 ## Project Overview
 
@@ -22,7 +22,11 @@ This project explores the relationship between wealth inequality and national ha
 
 ## Key Findings
 
-Initial results indicate a weak negative correlation between the wealth share of the top 1% and national happiness, suggesting that higher wealth concentration may be slightly associated with lower happiness scores. However, the relationship is complex, and further analysis is needed to account for additional variables and contextual factors.
+- **Top 1% Analysis:**  
+  Initial results indicate a weak negative correlation between the wealth share of the top 1% and national happiness, suggesting that higher wealth concentration in this group may be slightly associated with lower happiness scores.
+
+- **Top 10% Analysis:**  
+  The analysis of the top 10% wealth distribution shows a moderate negative relationship with national happiness. The correlation coefficient is approximately -0.32, and the linear regression model reveals a statistically significant negative slope. This indicates that, on average, as the share of wealth held by the top 10% increases, national happiness scores tend to decrease. However, the moderate strength of this relationship also suggests that other factors likely contribute to overall happiness.
 
 ## How to Run the Analysis
 
