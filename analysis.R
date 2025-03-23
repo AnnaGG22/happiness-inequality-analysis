@@ -1,3 +1,11 @@
+
+# Clearing console
+cat("\014")
+# Clear environment
+rm(list = ls())
+# Clear figures
+graphics.off()
+
 # Load required libraries
 library(tidyverse)
 library(readxl)
@@ -91,6 +99,32 @@ ggplot(iqr_cleaned, aes(x = shweal, y = Ladderscore, label = Country)) +
        y = "Happiness Score")
 
 
+#if you want also colors for every region
+# Define custom colors for each region (make sure these names exactly match your data)
+custom_colors <- c(
+  "Western Europe"                   = "#E41A1C",  # red
+  "Middle East and North Africa"     = "#FF7F00",  # orange
+  "North America and ANZ"            = "#FFFF33",  # yellow
+  "Latin America and Caribbean"      = "#984EA3",  # purple
+  "Central and Eastern Europe"       = "#377EB8",  # blue
+  "Southeast Asia"                   = "#4DAF4A",  # green
+  "Commonwealth of Independent States" = "#A65628",# brown
+  "East Asia"                        = "#F781BF",  # pink
+  "Sub-Saharan Africa"               = "#999999",  # grey
+  "South Asia"                       = "#66C2A5"   # teal
+)
+
+ggplot(iqr_cleaned, aes(x = shweal, y = Ladderscore, label = Country, color = `Regional indicator`)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  geom_text_repel() +
+  labs(title = "Relationship between Inequality (Top 10%) and Happiness",
+       x = "Inequality (share of wealth held by the top 10%)",
+       y = "Happiness Score") +
+  scale_color_manual(values = custom_colors)
+
+
+
 # ============================================================
 # Analysis with Top 1% Inequality Data
 # ============================================================
@@ -141,6 +175,42 @@ ggplot(iqr_cleaned1, aes(x = shweal, y = Ladderscore)) +
 cor_coef1 <- cor(iqr_cleaned1$shweal, iqr_cleaned1$Ladderscore, use = "complete.obs")
 print(paste("Correlation coefficient (Top 1%):", cor_coef1))
 
-# Fit a linear regression model for Top 1% data
-model1 <- lm(Ladderscore ~ shweal, data = iqr_cleaned1)
-summary(model1)
+
+
+
+
+######################################################################################################################################
+
+# Plot for Top 10% data with colors and labels
+plot_top10_full <- ggplot(iqr_cleaned, aes(x = shweal, y = Ladderscore, 
+                                           color = `Regional indicator`, label = Country)) +
+  geom_point(size = 3) +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  geom_text_repel(max.overlaps = Inf, size = 3, color = "black", segment.color = "grey") +
+  labs(title = "Happiness vs Wealth Inequality (Top 10%) by Region",
+       x = "Wealth Share of Top 10%",
+       y = "Happiness Score") +
+  scale_color_manual(values = custom_colors) +
+  theme_bw()
+
+# Save as high-res PNG
+ggsave("happiness_vs_inequality_top10_full.png", plot = plot_top10_full,
+       width = 12, height = 8, dpi = 300)
+
+
+# Plot for Top 1% data with colors and labels
+plot_top1_full <- ggplot(iqr_cleaned1, aes(x = shweal, y = Ladderscore, 
+                                           color = `Regional indicator`, label = Country)) +
+  geom_point(size = 3) +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  geom_text_repel(max.overlaps = Inf, size = 3, color = "black", segment.color = "grey") +
+  labs(title = "Happiness vs Wealth Inequality (Top 1%) by Region",
+       x = "Wealth Share of Top 1%",
+       y = "Happiness Score") +
+  scale_color_manual(values = custom_colors) +
+  theme_bw()
+
+# Save as high-res PNG
+ggsave("happiness_vs_inequality_top1_full.png", plot = plot_top1_full,
+       width = 12, height = 8, dpi = 300)
+
