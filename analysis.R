@@ -15,6 +15,17 @@ library(ggrepel)
 # Analysis with Top 10% Inequality Data
 # ============================================================
 
+
+theme_bw() +
+  theme(
+    plot.title = element_text(size = 12),         # Title font size
+    axis.title = element_text(size = 11),         # Axis titles
+    axis.text = element_text(size = 9),          # Tick labels
+    legend.title = element_text(size = 10),       # Legend title
+    legend.text = element_text(size = 10)         # Legend labels
+  )
+
+
 # Import datasets
 happiness <- read_csv("happiness_data.csv")
 inequality <- read_excel("inequality_data.xlsx", sheet = 1)
@@ -102,16 +113,16 @@ ggplot(iqr_cleaned, aes(x = shweal, y = Ladderscore, label = Country)) +
 #if you want also colors for every region
 # Define custom colors for each region (make sure these names exactly match your data)
 custom_colors <- c(
-  "Western Europe"                   = "#E41A1C",  # red
-  "Middle East and North Africa"     = "#FF7F00",  # orange
-  "North America and ANZ"            = "#FFFF33",  # yellow
-  "Latin America and Caribbean"      = "#984EA3",  # purple
-  "Central and Eastern Europe"       = "#377EB8",  # blue
-  "Southeast Asia"                   = "#4DAF4A",  # green
-  "Commonwealth of Independent States" = "#A65628",# brown
-  "East Asia"                        = "#F781BF",  # pink
-  "Sub-Saharan Africa"               = "#999999",  # grey
-  "South Asia"                       = "#66C2A5"   # teal
+  "Western Europe"                   = "#126782",  
+  "Middle East and North Africa"     = "#cb0b0a",  
+  "North America and ANZ"            = "#27a300",  
+  "Latin America and Caribbean"      = "#568d66",  
+  "Central and Eastern Europe"       = "#58b4d1",  
+  "Southeast Asia"                   = "#fb9017",  
+  "Commonwealth of Independent States" = "#a5c1ae",
+  "East Asia"                        = "#fd9e02",  
+  "Sub-Saharan Africa"               = "#8e0413",  
+  "South Asia"                       = "#ffb703"   
 )
 
 ggplot(iqr_cleaned, aes(x = shweal, y = Ladderscore, label = Country, color = `Regional indicator`)) +
@@ -185,8 +196,8 @@ print(paste("Correlation coefficient (Top 1%):", cor_coef1))
 plot_top10_full <- ggplot(iqr_cleaned, aes(x = shweal, y = Ladderscore, 
                                            color = `Regional indicator`, label = Country)) +
   geom_point(size = 3) +
-  geom_smooth(method = "lm", se = FALSE, color = "blue") +
-  geom_text_repel(max.overlaps = Inf, size = 3, color = "black", segment.color = "grey") +
+  geom_smooth(method = "lm", se = FALSE, color = "#d44545", alpha = 0.6) +
+  geom_text_repel(max.overlaps = Inf, size = 2, color = "black", segment.color = "grey") +
   labs(title = "Happiness vs Wealth Inequality (Top 10%) by Region",
        x = "Wealth Share of Top 10%",
        y = "Happiness Score") +
@@ -202,8 +213,8 @@ ggsave("happiness_vs_inequality_top10_full.png", plot = plot_top10_full,
 plot_top1_full <- ggplot(iqr_cleaned1, aes(x = shweal, y = Ladderscore, 
                                            color = `Regional indicator`, label = Country)) +
   geom_point(size = 3) +
-  geom_smooth(method = "lm", se = FALSE, color = "blue") +
-  geom_text_repel(max.overlaps = Inf, size = 3, color = "black", segment.color = "grey") +
+  geom_smooth(method = "lm", se = FALSE, color = "#d44545", alpha = 0.6) +
+  geom_text_repel(max.overlaps = Inf, size = 2, color = "black", segment.color = "grey") +
   labs(title = "Happiness vs Wealth Inequality (Top 1%) by Region",
        x = "Wealth Share of Top 1%",
        y = "Happiness Score") +
